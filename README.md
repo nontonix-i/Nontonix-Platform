@@ -60,5 +60,5 @@ Jangan biarkan waktu luangmu membosankan. Bergabunglah dengan ribuan pecinta dra
 
 <div align="center">
   <p>Dibuat dengan ❤️ oleh pecinta drakor untuk pecinta drakor.</p>
-  <p><strong>Nontonix 2026 — Semua Hak Dilindungi.</strong></p>
+  <p><strong>Nontonix 2026</strong></p>
 </div>
