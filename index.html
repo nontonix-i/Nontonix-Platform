@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Nontonix - Nonton Drama & Film Sub Indo Terlengkap & Tercepat</title>
+    <meta name="description" content="Nontonix adalah platform streaming drakor (drama korea), film Asia, dan variety show terlengkap dengan subtitle Indonesia. Nikmati kualitas HD secara gratis dan update setiap hari.">
+    <meta name="keywords" content="nonton drakor, drama korea sub indo, streaming film online, nontonix, drakor terbaru, film asia sub indo, We Are All Trying Here, Absolute Value of Romance, Yumi's Cells 3">
+    <meta name="author" content="Nontonix">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nontonix.site/">
+    <meta property="og:title" content="Nontonix - Nonton Drama & Film Sub Indo Terlengkap">
+    <meta property="og:description" content="Nikmati ribuan koleksi drama dan film terbaik dengan kualitas tinggi dan update tercepat hanya di Nontonix.">
+    <meta property="og:image" content="./hero-bg.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #050a12;
+            --surface: #0e1a2b;
+            --primary: #FF5545;
+            --accent: #00e3fd;
+            --text: #d9e3f7;
+            --text-muted: rgba(217, 227, 247, 0.5);
+            --glass: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 100px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            border: none;
+            font-size: 13px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(255, 85, 69, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 85, 69, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* --- Header --- */
+        header {
+            padding: 20px 0;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-svg {
+            width: 36px;
+            height: auto;
+        }
+
+        .brand span {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            color: #fff;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-collage {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 8px;
+            opacity: 0.1;
+            filter: grayscale(1) brightness(0.6);
+            transform: rotate(-5deg) scale(1.1);
+            pointer-events: none;
+        }
+
+        .collage-item {
+            aspect-ratio: 2/3;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent, var(--bg) 85%),
+                        linear-gradient(to bottom, transparent, var(--bg));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 10vw, 90px);
+            font-weight: 900;
+            line-height: 0.95;
+            margin-bottom: 20px;
+            letter-spacing: -4px;
+        }
+
+        .hero h1 span { color: var(--primary); }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            max-width: 550px;
+            font-weight: 500;
+        }
+
+        /* --- Latest Drama Section --- */
+        .latest-dramas {
+            padding: 60px 0 100px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .view-all {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s;
+        }
+        .view-all:hover { gap: 10px; }
+
+        .drama-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
+        .drama-card {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .drama-poster-wrap {
+            position: relative;
+            aspect-ratio: 2/3;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .drama-card:hover .drama-poster-wrap {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        .drama-poster {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
+        }
+
+        .drama-card:hover .drama-poster {
+            transform: scale(1.08);
+        }
+
+        .badge-new {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 9px;
+            font-weight: 900;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(255, 85, 69, 0.4);
+        }
+
+        .badge-ep {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .drama-info {
+            padding: 10px 4px 0;
+        }
+
+        .drama-title {
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: var(--text);
+            transition: color 0.3s;
+        }
+
+        .drama-card:hover .drama-title {
+            color: var(--primary);
+        }
+
+        .drama-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* --- Footer --- */
+        footer { padding: 80px 0; border-top: 1px solid var(--glass-border); text-align: center; }
+        .footer-brand { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; text-decoration: none; }
+        .footer-brand span { color: #fff; font-weight: 900; font-size: 18px; letter-spacing: -1px; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero { height: 80vh; }
+            .hero-bg-collage { grid-template-columns: repeat(4, 1fr); }
+            .drama-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+            .hero-content { text-align: center; margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="nav-inner">
+                <a href="https://nontonix.site" class="brand">
+                    <svg class="logo-svg" viewBox="0 0 491 359" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M47.0685 107C77.1649 80.1418 144.068 71.5 144.068 71.5V293.5H226.568V204L388.569 358.5H144.068C144.068 358.5 77.3437 352.879 47.0685 327C12.5713 297.513 1.60486 265.871 0.568499 220.5C-0.525357 172.612 11.3299 138.893 47.0685 107Z" fill="#FF5545" stroke="black"/>
+                        <path d="M443.568 251.5C413.472 278.358 346.568 287 346.568 287V65H264.068V154.5L102.068 0H346.568C346.568 0 413.293 5.62143 443.568 31.5C478.066 60.9874 489.032 92.6295 490.068 138C491.162 185.888 479.307 219.607 443.568 251.5Z" fill="#FF5545"/>
+                    </svg>
+                    <span>NONTONIX</span>
+                </a>
+                <a href="https://nontonix.site" class="btn btn-primary" style="padding: 10px 24px; font-size: 11px;">Masuk</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg-collage">
+            <div class="collage-item" style="background-image: url('https://assets.d-cdn.me/img/2026/04/41-wearealltryinghere-p1.jpg')"></div>
+            <div class="collage-item" style="background-image: url('https://assets.d-cdn.me/img/2026/04/327-abdggl4f.jpg')"></div>
+            <div class="collage-item" style="background-image: url('https://assets.d-cdn.me/img/2026/04/288-kp4e444f.jpg')"></div>
+            <div class="collage-item" style="background-image: url('https://assets.d-cdn.me/img/2026/04/610-yywlwp4f.jpg')"></div>
+            <div class="collage-item" style="background-image: url('https://assets.d-cdn.me/img/2026/04/164-abqkre4f.jpg')"></div>
+            <div class="collage-item" style="background-image: url('https://assets.d-cdn.me/img/2026/04/770-1nvh7a8bmihgrzxykyivjbbhq6o-500x600.jpg')"></div>
+            <div class="collage-item" style="background-image: url('https://assets.d-cdn.me/img/2026/04/26-sinsofkujo-p1.jpg')"></div>
+            <div class="collage-item" style="background-image: url('https://assets.d-cdn.me/img/2026/04/458-l0kw3j4f.jpg')"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Drakor & Film <span>Sub Indo</span> Gratis.</h1>
+                <p>Nonton episode terbaru drama Korea favorit Anda dan film blockbuster Asia dengan kualitas HD setiap hari tanpa biaya langganan.</p>
+                <a href="https://nontonix.site" class="btn btn-primary">Nonton Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="latest-dramas">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2>Update Terkini</h2>
+                    <p>Episode terbaru yang baru saja rilis hari ini.</p>
+                </div>
+                <a href="https://nontonix.site" class="view-all">Lihat Semua Drama</a>
+            </div>
+
+            <div class="drama-grid">
+                <!-- Data Dynamically Linked with Slugs -->
+                <a href="https://nontonix.site/movie/we-are-all-trying-here-2026" class="drama-card">
+                    <div class="drama-poster-wrap">
+                        <div class="badge-new">NEW</div>
+                        <div class="badge-ep">Ep 12</div>
+                        <div class="drama-poster" style="background-image: url('https://assets.d-cdn.me/img/2026/04/41-wearealltryinghere-p1.jpg')"></div>
+                    </div>
+                    <div class="drama-info">
+                        <div class="drama-title">We Are All Trying Here</div>
+                        <div class="drama-meta">Drama • 2026</div>
+                    </div>
+                </a>
+                <a href="https://nontonix.site/movie/absolute-value-of-romance-2026" class="drama-card">
+                    <div class="drama-poster-wrap">
+                        <div class="badge-ep">Ep 08</div>
+                        <div class="drama-poster" style="background-image: url('https://assets.d-cdn.me/img/2026/04/327-abdggl4f.jpg')"></div>
+                    </div>
+                    <div class="drama-info">
+                        <div class="drama-title">Absolute Value of Romance</div>
+                        <div class="drama-meta">Drama • 2026</div>
+                    </div>
+                </a>
+                <a href="https://nontonix.site/movie/reverse-2026" class="drama-card">
+                    <div class="drama-poster-wrap">
+                        <div class="badge-ep">Ep 04</div>
+                        <div class="drama-poster" style="background-image: url('https://assets.d-cdn.me/img/2026/04/288-kp4e444f.jpg')"></div>
+                    </div>
+                    <div class="drama-info">
+                        <div class="drama-title">Reverse</div>
+                        <div class="drama-meta">Series • 2026</div>
+                    </div>
+                </a>
+                <a href="https://nontonix.site/movie/yumi-s-cells-3-2026" class="drama-card">
+                    <div class="drama-poster-wrap">
+                        <div class="badge-new">NEW</div>
+                        <div class="badge-ep">Ep 16</div>
+                        <div class="drama-poster" style="background-image: url('https://assets.d-cdn.me/img/2026/04/610-yywlwp4f.jpg')"></div>
+                    </div>
+                    <div class="drama-info">
+                        <div class="drama-title">Yumi's Cells 3</div>
+                        <div class="drama-meta">Drama • 2026</div>
+                    </div>
+                </a>
+                <a href="https://nontonix.site/movie/echoes-of-a-thousand-moons-2026" class="drama-card">
+                    <div class="drama-poster-wrap">
+                        <div class="badge-ep">Ep 10</div>
+                        <div class="drama-poster" style="background-image: url('https://assets.d-cdn.me/img/2026/04/164-abqkre4f.jpg')"></div>
+                    </div>
+                    <div class="drama-info">
+                        <div class="drama-title">Echoes of a Thousand Moons</div>
+                        <div class="drama-meta">Drama • 2026</div>
+                    </div>
+                </a>
+                <a href="https://nontonix.site/movie/rebirth-2026" class="drama-card">
+                    <div class="drama-poster-wrap">
+                        <div class="badge-ep">Full</div>
+                        <div class="drama-poster" style="background-image: url('https://assets.d-cdn.me/img/2026/04/770-1nvh7a8bmihgrzxykyivjbbhq6o-500x600.jpg')"></div>
+                    </div>
+                    <div class="drama-info">
+                        <div class="drama-title">Rebirth</div>
+                        <div class="drama-meta">Movie • 2026</div>
+                    </div>
+                </a>
+                <a href="https://nontonix.site/movie/sins-of-kujo-2026" class="drama-card">
+                    <div class="drama-poster-wrap">
+                        <div class="badge-ep">Ep 06</div>
+                        <div class="drama-poster" style="background-image: url('https://assets.d-cdn.me/img/2026/04/26-sinsofkujo-p1.jpg')"></div>
+                    </div>
+                    <div class="drama-info">
+                        <div class="drama-title">Sins of Kujo</div>
+                        <div class="drama-meta">Drama • 2026</div>
+                    </div>
+                </a>
+                <a href="https://nontonix.site/movie/perfect-crown-2026" class="drama-card">
+                    <div class="drama-poster-wrap">
+                        <div class="badge-ep">Ep 02</div>
+                        <div class="drama-poster" style="background-image: url('https://assets.d-cdn.me/img/2026/04/380-perfectcrown-p1.jpg')"></div>
+                    </div>
+                    <div class="drama-info">
+                        <div class="drama-title">Perfect Crown</div>
+                        <div class="drama-meta">Drama • 2026</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #03070c;">
+        <div class="container">
+            <a href="#" class="footer-brand">
+                <svg class="logo-svg" viewBox="0 0 491 359" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 28px;">
+                    <path d="M47.0685 107C77.1649 80.1418 144.068 71.5 144.068 71.5V293.5H226.568V204L388.569 358.5H144.068C144.068 358.5 77.3437 352.879 47.0685 327C12.5713 297.513 1.60486 265.871 0.568499 220.5C-0.525357 172.612 11.3299 138.893 47.0685 107Z" fill="#FF5545" stroke="black"/>
+                    <path d="M443.568 251.5C413.472 278.358 346.568 287 346.568 287V65H264.068V154.5L102.068 0H346.568C346.568 0 413.293 5.62143 443.568 31.5C478.066 60.9874 489.032 92.6295 490.068 138C491.162 185.888 479.307 219.607 443.568 251.5Z" fill="#FF5545"/>
+                </svg>
+                <span>NONTONIX</span>
+            </a>
+            <p style="color: var(--text-muted); font-size: 12px;">&copy; 2026 Nontonix. Nonton Drama Korea Sub Indo Terlengkap.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
