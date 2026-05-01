@@ -48,7 +48,7 @@ Jangan biarkan waktu luangmu membosankan. Bergabunglah dengan ribuan pecinta dra
 
 <div align="center">
   <br />
-  <a href="https://nontonix.site">
+  <a href="https://drakor.my.id">
     <img src="https://img.shields.io/badge/KLIK_DISINI_UNTUK_NONTON-FF5545?style=for-the-badge&logo=playstation&logoColor=white" height="50" />
   </a>
   <br />
